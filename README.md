@@ -147,10 +147,10 @@ npx prisma init
 4. main/production branch push
 ### EC2 배포
 1. EC2 인스턴스 생성
-이름:nodejslv2
-OS image: Ubuntu
-인스턴스 유형: t2.micro
-기존 키페어 사용: pem 파일
+* 이름 : nodejslv2
+* OS image : Ubuntu
+* 인스턴스 유형: t2.micro
+* 기존 키페어 사용: pem 파일
 
 [Windows 환경]
 
