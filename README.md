@@ -5,9 +5,10 @@
 1. **프로젝트의 ERD 작성**
 2. **Prisma.schema 파일에서 각 모델 작성**
 3. **API 구현하기**
-3-1. **API 목록**
-   + 리뷰 작성, 목록 조회, 상세 조회, 수정, 삭제
-   + 댓글 작성, 목록 조회 , 수정, 삭제
+
+   3-1. **API 목록**
+      + 리뷰 작성, 목록 조회, 상세 조회, 수정, 삭제
+      + 댓글 작성, 목록 조회 , 수정, 삭제
 
 ## 프로젝트 링크
 
@@ -21,7 +22,7 @@
 ### Main repository 관리자
 
 - 프로젝트 세팅
-- 기능 개발(`main` branch에 업데이트)
+- 기능 개발(`main branch`에 업데이트)
 - 배포 업데이트(`production branch` 업데이트 및 EC2 인스턴스 업데이트)
 
 ### Fork repository 관리자
@@ -59,8 +60,8 @@
 
 ## 프로젝트 세팅
 ### 로컬 프로젝트 세팅
-1. Private 리포지토리 생성 및 clone
-2. 필요한 패키지 및 prisma 초기화
+1. **Private 리포지토리 생성 및 clone**
+2. **필요한 패키지 및 prisma 초기화**
 ```bash
 # Project init
 yarn init
@@ -98,7 +99,7 @@ npx prisma init
   }
 }
 ```
-3. 폴더 및 파일 수정
+3. **폴더 및 파일 수정**
    * schema.prisma 파일 수정
      ```plaintext
      datasource db {
@@ -144,9 +145,9 @@ npx prisma init
      }
      ```
 
-4. main/production branch push
+4. **main/production branch push**
 ### EC2 배포
-1. EC2 인스턴스 생성
+1. **EC2 인스턴스 생성**
 * 이름 : nodejslv2
 * OS image : Ubuntu
 * 인스턴스 유형: t2.micro
@@ -154,7 +155,7 @@ npx prisma init
 
 [Windows 환경]
 
-2. AWS EC2 접속
+2. **AWS EC2 접속**
 ``` bash
 # Git bash 실행
 ssh -i [key-pair file] ubuntu@[public ip]
@@ -165,7 +166,7 @@ sudo apt-get install -y nodejs
 node -v
 npm -v
 ```
-3. 프로젝트 클론
+3. **프로젝트 클론**
 ``` bash
 # 프로젝트 클론
 git clone https://github.com/jovid18/nodejs_assignment_level2.git
@@ -174,14 +175,14 @@ sudo npm install -g yarn
 # 패키지 설치
 yarn
 ```
-4. production 브랜치 변경
+4. **production 브랜치 변경**
 ``` bash
 # production branch로 변경
 git checkout production
 # branch 목록 확인
 git branch
 ```
-5. 추가 세팅
+5. **추가 세팅**
    * Instance 포트 설정
      * 인바운드 규칙 편집
      * 규칙 추가
@@ -214,12 +215,12 @@ git branch
      ```
 
 
-6. 배포
+6. **배포**
 ``` bash
 pm2 start src/app.js
 ```
 
-7. 수정 사항 반영
+7. **수정 사항 반영**
 ``` bash
 # git bash 터미널
 # 원격 저장소의 내용 받기
