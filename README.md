@@ -219,22 +219,40 @@ git branch
 pm2 start src/app.js
 ```
 
+7. 수정 사항 반영
+``` bash
+# git bash 터미널
+# 원격 저장소의 내용 받기
+git pull
+# pm2로 서버 다시 시작
+pm2 start src/app.js
+```
+
+
+
+
 ## git 커맨드 정리
 ```bash
-#전체 저장소 클론하기
+# 전체 저장소 클론하기
 git clone <repository-url>
-#특정 브랜치로 체크아웃하기
+
+# 특정 브랜치로 체크아웃하기
 git checkout <branch-name>
-#main repository에서  원격 저장소에 production branch 추가
+
+# main repository에서  원격 저장소에 production branch 추가
 git checkout -b production
 git push -u origin production
-#로컬 브런치 보기
+
+# 로컬 브런치 보기
 git branch
-#원격 브런치 보기
+
+# 원격 브런치 보기
 git branch -r
-#로컬 및 원격 브랜치 모두 보기
+
+# 로컬 및 원격 브랜치 모두 보기
 git branch -a
-#a브런치에서 b브런치의 내용을 받고 싶은 경우
+
+# a브런치에서 b브런치의 내용을 받고 싶은 경우
 git checkout a
 git merge b
 ```
