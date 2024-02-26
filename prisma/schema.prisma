@@ -15,14 +15,29 @@ datasource db {
 
 
 // review 모델
-model Review {
-  id      Int      @id @default(autoincrement()) @map("review_id")
-  bookTitle String @map("bookTitle")
-  title   String @map("title")
-  content String @map("content")
-  starRating    Int      @map("starRating") @min(1) @max(10)
-  author    String @map("author")
-  password  String, @map("password")
-  createdAt DateTime  @default(now())@map("createdAt")
-  updatedAt DateTime @updatedAt @default(now()) @map("updateAt")
+model Reviews {
+  id        Int      @id @default(autoincrement()) @map("review_id")
+  bookTitle String   @map("bookTitle") 
+  title     String   @map("title")
+  content   String   @map("content")
+  starRating Int     @map("starRating") @min(1) @max(10)
+  author    String   @map("author")
+  password  String   @map("password")
+  createdAt DateTime @default(now()) @map("createdAt")
+  updatedAt DateTime @updatedAt @map("updateAt")
+
+  @@map('Reviews')
+}
+
+
+// comment model
+model Comments {
+  id        Int      @id @default(autoincrement()) @map('comment_id')
+  content   String   @map('content')
+  author    String   @map('author')
+  password  String   @map('password')
+  createdAt DateTime @default(now()) @map('createdAt')
+  updatedAt DateTime @updatedAt @map('updatedAt')
+
+  @@map('Comments')
 }
