@@ -32,14 +32,50 @@
 
 ## 코드 컨벤션
 
-### 기능 개발
+### 기능 개발 
 
 - `main branch`에 직접 개발하지 않고, 예: `feat/addlogin`와 같은 branch를 생성하여 해당 브랜치에서 작업.
-- 기능 개발이 완료되면, merge하기 전에 repo 또는 현재 작업 환경이 최신인지 확인.
-- 확인 후 `main branch`에 merge하고 브랜치는 삭제.
 - **Main repository 관리자**는 `main repository(main)`에 push하고 팀원에게 보고.
 - **Fork repository 관리자**는 `fork repository(main)`에 push하고 `main repository(main)`에 pull-request하고 main repo 관리자에게 보고.
 
+### 브랜치 개발 방식
+
+1 .feat/api 브랜치 만들기
+``` bash
+# main 브랜치로 이동하여 최신 상태 업데이트
+git checkout main
+git pull origin main
+# main 브랜치에서 feat/api 브랜치 생성
+git checkout -b feat/api
+```
+2. feat/api 브랜치에서 작업하기
+``` bash
+git add .
+git commit -m '${type}/{content}`
+```
+3. 주기적으로 main 브랜치의 내용을 `feat/api` 브랜치로 merge하기
+```bash
+# main 브랜치로 이동해 최신 변경 사항 가져오기
+git checkout main
+git pull origin main
+# feat/api 브랜치로 이동하여 main 브랜치 변경사항 merge
+git checkout feat/api
+git merge main
+```
+4. 개발 완료 후 'main` 브랜치로 `feat/api` 브랜치의 변경 사항 merge 하기
+```bash
+git checkout main
+git merge feat/api
+git pull origin main
+```
+
+5. `feat/api` 브랜치 삭제하기
+``` bash
+# 로컬에서 feat/api 브랜치 삭제
+git branch -d feat/api
+# 원격에서 feat/api 브랜치 삭제
+git push origin --delete feat/api
+```
 ### 커밋 메시지 형식
 
 - 커밋 시 명칭: `${type}: ${changes}` (예: `FEAT: add login UI`, `STYLE: remove empty line`)
