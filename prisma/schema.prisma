@@ -12,3 +12,17 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+
+// review 모델
+model Review {
+  id      Int      @id @default(autoincrement()) @map("review_id")
+  bookTitle String @map("bookTitle")
+  title   String @map("title")
+  content String @map("content")
+  starRating    Int      @map("starRating") @min(1) @max(10)
+  author    String @map("author")
+  password  String, @map("password")
+  createdAt DateTime  @default(now())@map("createdAt")
+  updatedAt DateTime @updatedAt @default(now()) @map("updateAt")
+}
