@@ -66,7 +66,7 @@ git merge main
 ```bash
 git checkout main
 git merge feat/api
-git pull origin main
+git push origin main
 ```
 
 5. `feat/api` 브랜치 삭제하기
