@@ -66,6 +66,7 @@ router.get('/:id', async (req, res) => {
   let reviewOne = await prisma.Reviews.findFirst({
     where: { id: +id },
     select: {
+      id: true,
       bookTitle: true,
       title: true,
       content: true,
