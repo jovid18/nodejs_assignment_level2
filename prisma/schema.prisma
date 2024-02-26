@@ -20,7 +20,7 @@ model Reviews {
   bookTitle String   @map("bookTitle") 
   title     String   @map("title")
   content   String   @map("content")
-  starRating Int     @map("starRating") @min(1) @max(10)
+  starRating Int     @map("starRating")
   author    String   @map("author")
   password  String   @map("password")
   createdAt DateTime @default(now()) @map("createdAt")
@@ -32,12 +32,12 @@ model Reviews {
 
 // comment model
 model Comments {
-  id        Int      @id @default(autoincrement()) @map('comment_id')
-  content   String   @map('content')
-  author    String   @map('author')
-  password  String   @map('password')
-  createdAt DateTime @default(now()) @map('createdAt')
-  updatedAt DateTime @updatedAt @map('updatedAt')
+  id        Int      @id @default(autoincrement()) @map("comment_id")
+  content   String   @map("content")
+  author    String   @map("author")
+  password  String   @map("password")
+  createdAt DateTime @default(now()) @map("createdAt")
+  updatedAt DateTime @updatedAt @map("updatedAt")
 
-  @@map('Comments')
+  @@map("Comments")
 }
