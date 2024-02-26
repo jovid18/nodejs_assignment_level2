@@ -12,6 +12,8 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+
 // review 모델
 model Review {
   id      Int      @id @default(autoincrement()) @map("review_id")
@@ -24,4 +26,3 @@ model Review {
   createdAt DateTime  @default(now())@map("createdAt")
   updatedAt DateTime @updatedAt @default(now()) @map("updateAt")
 }
-
