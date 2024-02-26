@@ -13,9 +13,8 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
-
+app.use('/api/reviews', ReviewsRouter);
 app.use('/api', CommentsRouter);
-app.use('/api', ReviewsRouter);
 app.use(notFoundErrorHandler);
 app.use(generalErrorHandler);
 app.listen(PORT, () => {
