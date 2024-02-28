@@ -58,7 +58,7 @@ router.post('/', async (req, res, next) => {
     });
     return res.status(200).json({ message: '첵 리뷰를 등록하였습니다' });
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    next(error);
   }
 });
 
@@ -66,11 +66,6 @@ router.post('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     let { id } = req.params;
-    if (!id) {
-      return res
-        .status(400)
-        .json({ errorMessage: '데이터 형식이 올바르지 않습니다.' });
-    }
     let reviewOne = await prisma.Reviews.findFirst({
       where: { id: +id },
       select: {

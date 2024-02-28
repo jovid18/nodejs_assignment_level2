@@ -5,12 +5,6 @@ const router = express.Router();
 
 router.post('/reviews/:reviewId/comments', async (req, res, next) => {
   try {
-    // body 또는 params를 입력받지 못한 경우
-    if (!req.body || !req.params) {
-      return res
-        .status(400)
-        .json({ message: '데이터 형식이 올바르지 않습니다.' });
-    }
     const { reviewId } = req.params;
     const { content, author, password } = req.body;
     //댓글 내용이 존재하지 않을 경우
@@ -45,12 +39,6 @@ router.post('/reviews/:reviewId/comments', async (req, res, next) => {
 
 router.get('/reviews/:reviewId/comments', async (req, res, next) => {
   try {
-    // body 또는 params를 입력받지 못한 경우
-    if (!req.body || !req.params) {
-      return res
-        .status(400)
-        .json({ message: '데이터 형식이 올바르지 않습니다.' });
-    }
     //reviewId 받아오기
     const { reviewId } = req.params;
     //reviewId에 해당하는 리뷰 검색
@@ -80,12 +68,6 @@ router.get('/reviews/:reviewId/comments', async (req, res, next) => {
 
 router.put('/reviews/:reviewId/comments/:commentId', async (req, res, next) => {
   try {
-    // body 또는 params를 입력받지 못한 경우
-    if (!req.body || !req.params) {
-      return res
-        .status(400)
-        .json({ message: '데이터 형식이 올바르지 않습니다.' });
-    }
     //reviewId, commentId, content, password 받아오기
     const { reviewId, commentId } = req.params;
     const { content, password } = req.body;
@@ -135,12 +117,6 @@ router.delete(
   '/reviews/:reviewId/comments/:commentId',
   async (req, res, next) => {
     try {
-      // body 또는 params를 입력받지 못한 경우
-      if (!req.body || !req.params) {
-        return res
-          .status(400)
-          .json({ message: '데이터 형식이 올바르지 않습니다.' });
-      }
       //reviewId, commentId, password 받아오기
       const { reviewId, commentId } = req.params;
       const { password } = req.body;
