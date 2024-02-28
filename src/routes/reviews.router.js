@@ -90,7 +90,7 @@ router.put('/:id', async (req, res, next) => {
   try {
     let { id } = req.params;
     const { bookTitle, title, content, starRating, password } = req.body;
-    if (!id || !bookTitle || !title || !content || !starRating || !password) {
+    if ( !bookTitle || !title || !content || !starRating || !password) {
       return res
         .status(400)
         .json({ errorMessage: '데이터 형식이 올바르지 않습니다.' });
@@ -106,7 +106,7 @@ router.put('/:id', async (req, res, next) => {
     });
     if (!review)
       return res.status(404).json({ message: '존재하지 않는 리뷰입니다' });
-    else if (review.password != password) {
+    if (review.password != password) {
       return res.status(404).json({ message: ' 비밀번호가 틀립니다' });
     }
 
@@ -128,7 +128,7 @@ router.delete('/:id', async (req, res, next) => {
   try {
     let { id } = req.params;
     const { password } = req.body;
-    if (!id || !password) {
+    if ( !password) {
       return res
         .status(400)
         .json({ errorMessage: '데이터 형식이 올바르지 않습니다.' });
@@ -138,7 +138,7 @@ router.delete('/:id', async (req, res, next) => {
     });
     if (!review)
       return res.status(404).json({ message: '존재하지 않는 리뷰입니다' });
-    else if (review.password != password) {
+    if (review.password != password) {
       return res.status(404).json({ message: ' 비밀번호가 틀립니다' });
     }
     await prisma.Reviews.delete({ where: { id: +id } });
